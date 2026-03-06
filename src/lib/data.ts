@@ -5,25 +5,25 @@ export const PROJECTS: Project[] = [
     title: "Agentic AI Dev Pipeline",
     slug: "agentic-ai-dev-pipeline",
     description:
-      "Custom CI/CD pipeline using Claude Agent SDK for automated code review, test generation, and PR management.",
+      "Multi-agent code pipeline powered by Claude with SQLite-backed memory, running engineer, tester, and reviewer agents in a self-correcting loop.",
     longDescription:
-      "A fully automated development pipeline that leverages the Claude Agent SDK to perform intelligent code review, generate comprehensive test suites, and manage pull requests end-to-end. The system integrates directly with GitHub Actions and provides detailed feedback inline on PRs, dramatically reducing manual review overhead.",
-    tags: ["TypeScript", "Claude SDK", "GitHub Actions"],
+      "A multi-agent development pipeline built on the Anthropic SDK where specialized agents — engineer, tester, and reviewer — collaborate sequentially on a task. The reviewer can trigger revisions, sending the pipeline back to any upstream agent up to a configurable retry limit. A SQLite memory store (via better-sqlite3) gives each agent recall of its previous outputs, using SHA-256 hashing for exact-match lookup with a recency fallback. The entire system is written in TypeScript and designed to be composable: agents are plain config objects, making it easy to add new roles or swap models.",
+    tags: ["TypeScript", "Anthropic SDK", "SQLite", "Multi-Agent"],
     status: "In Progress",
     link: "#",
-    github: "https://github.com/yourusername/agentic-pipeline",
+    github: "https://github.com/amihali1/agent-pipeline",
   },
   {
     title: "Homelab Infrastructure",
     slug: "homelab-infrastructure",
     description:
-      "Docker Compose orchestration for self-hosted services including monitoring, DNS, and media management.",
+      "Proxmox homelab managed as infrastructure as code with Terraform, hosting a GPU AI stack, Home Assistant, and self-hosted services.",
     longDescription:
-      "A production-grade homelab setup using Docker Compose with full observability through Prometheus and Grafana. Services include Pi-hole for network-wide DNS filtering, Nginx Proxy Manager for reverse proxying, and a complete media stack. Everything is version-controlled and reproducible.",
-    tags: ["Docker", "Nginx", "Prometheus"],
+      "A fully version-controlled homelab defined in Terraform using the Proxmox provider. Three VMs are provisioned: a Docker host running Nextcloud, a Home Assistant OS VM with Govee, Dreo, and Wyoming voice pipeline integrations, and a GPU AI workstation with an RTX 2070 Super passed through via VFIO. The AI stack runs Ollama, Open WebUI, Wyoming Whisper (STT), Piper (TTS), and openWakeWord — all orchestrated with Docker Compose. The entire setup is reproducible from a single terraform apply.",
+    tags: ["Terraform", "Proxmox", "Docker", "Home Assistant", "Ollama"],
     status: "Active",
     link: "#",
-    github: "https://github.com/yourusername/homelab",
+    github: "https://github.com/amihali1/terraform-homelab",
   },
   {
     title: "Real-Time Data Dashboard",
