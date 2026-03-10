@@ -26,51 +26,60 @@ export const PROJECTS: Project[] = [
     github: "https://github.com/amihali1/terraform-homelab",
   },
   {
-    title: "Real-Time Data Dashboard",
-    slug: "real-time-data-dashboard",
+    title: "Portfolio Site",
+    slug: "portfolio-site",
     description:
-      "WebSocket-powered dashboard for monitoring IoT sensor data with historical charting and alerting.",
+      "Personal portfolio built with Next.js 15, TypeScript, and Tailwind CSS with dark/light theming and scroll-triggered animations.",
     longDescription:
-      "An end-to-end IoT monitoring solution with a React frontend consuming WebSocket streams from a Node.js backend. D3.js powers the historical time-series charts, while PostgreSQL stores the sensor data with efficient time-series indexing. Includes configurable alert thresholds with email and webhook notifications.",
-    tags: ["React", "Node.js", "PostgreSQL", "D3"],
-    status: "Completed",
-    link: "#",
-    github: "https://github.com/yourusername/data-dashboard",
+      "A modern portfolio site built with Next.js 15 App Router, React 19, and TypeScript. Features dark/light theme switching, smooth scroll-triggered animations via IntersectionObserver, a grain texture overlay, and a print-ready resume page. Centralized data management keeps content easy to update. Hosted from a self-managed homelab.",
+    tags: ["Next.js", "TypeScript", "React", "Tailwind CSS"],
+    status: "Active",
+    link: "https://amihali1.github.io",
+    github: "https://github.com/amihali1/portfolio",
   },
 ];
 
 export const EXPERIENCE: Experience[] = [
   {
     role: "Senior Software Engineer",
-    company: "Acme Corp",
+    company: "Zip Co",
     period: "2022 — Present",
     description:
-      "Lead development of microservices architecture serving 2M+ daily requests. Migrated legacy monolith to event-driven system.",
-    tech: ["TypeScript", "Go", "AWS", "Kafka"],
+      "Design, develop, and maintain backend services for underwriting, identity verification, and third-party integrations. Architect and scope large-scale projects from requirements through implementation. Build infrastructure-as-code with Terraform, implement Redis caching strategies, and write BDD integration tests.",
+    tech: ["C#", ".NET", "Terraform", "Redis", "Azure DevOps", "BDD"],
   },
   {
-    role: "Software Engineer",
-    company: "StartupCo",
-    period: "2019 — 2022",
+    role: "Backend Software Engineer",
+    company: "S&P Global",
+    period: "Dec 2019 — 2022",
     description:
-      "Full-stack development of SaaS platform. Built real-time collaboration features and payment integrations.",
-    tech: ["React", "Node.js", "PostgreSQL", "Stripe"],
+      "Developed and maintained RESTful API endpoints using C# in .NET Core for the entities platform. Managed SQL Server data through custom queries, stored procedures, and production data correction scripts. Deployed and tested services on AWS with CI/CD pipelines.",
+    tech: ["C#", ".NET Core", "SQL Server", "AWS", "CI/CD"],
   },
   {
-    role: "Junior Developer",
-    company: "Digital Agency",
-    period: "2017 — 2019",
+    role: "Programmer Analyst III",
+    company: "Change Healthcare",
+    period: "Aug 2015 — Dec 2019",
     description:
-      "Developed client-facing web applications and internal tooling. Introduced automated testing practices.",
-    tech: ["JavaScript", "Python", "Django", "MySQL"],
+      "Built automated data entry software to post payments and adjustments to healthcare information systems. Developed data validation tools, OCR-based claim processing, and file parsing programs using .NET and Informatica.",
+    tech: ["C#", ".NET", "Informatica", "OCR", "SQL"],
+  },
+  {
+    role: "Applications Developer II",
+    company: "International Paper",
+    period: "Jul 2014 — Aug 2015",
+    description:
+      "Built mobile applications with backend services for data transfer between SAP databases and devices. Developed manufacturing process software using ABAP in SAP and trained new hires on the platform.",
+    tech: ["SAP", "ABAP", "Mobile", "C#"],
   },
 ];
 
 export const SKILLS: SkillGroup[] = [
-  { category: "Languages", items: ["TypeScript", "Go", "Python", "Rust"] },
-  { category: "Frontend", items: ["React", "Next.js", "Tailwind", "D3.js"] },
-  { category: "Backend", items: ["Node.js", "PostgreSQL", "Redis", "Kafka"] },
-  { category: "DevOps", items: ["Docker", "K8s", "Terraform", "GitHub Actions"] },
+  { category: "Languages", items: ["C#", "SQL", "TypeScript", "JavaScript", "Python", "Java"] },
+  { category: "Frameworks & Tools", items: [".NET / .NET Core", "Terraform", "Redis", "Docker", "CI/CD Pipelines", "BDD Testing"] },
+  { category: "AI & Productivity", items: ["Claude Code", "ChatGPT", "Codex"] },
+  { category: "Software", items: ["Visual Studio", "JetBrains Rider", "Postman", "Azure DevOps", "AWS"] },
+  { category: "Version Control", items: ["Git", "GitHub", "GitLab", "Azure DevOps (TFS)"] },
 ];
 
 export function getProjectBySlug(slug: string): Project | undefined {

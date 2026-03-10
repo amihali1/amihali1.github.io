@@ -142,7 +142,7 @@ export default function ResumeClient() {
                   color: colors.text,
                 }}
               >
-                Your Name
+                Andrew M. Mihalik
               </h1>
               <p
                 style={{
@@ -164,9 +164,8 @@ export default function ResumeClient() {
                 lineHeight: 2,
               }}
             >
-              <div>hello@yourdomain.dev</div>
-              <div>github.com/yourusername</div>
-              <div>linkedin.com/in/yourname</div>
+              <div><a href="https://github.com/amihali1" target="_blank" rel="noopener noreferrer" style={{ color: colors.textMuted, textDecoration: "none" }}>github.com/amihali1</a></div>
+              <div><a href="https://www.linkedin.com/in/andrew-mihalik-38207a83/" target="_blank" rel="noopener noreferrer" style={{ color: colors.textMuted, textDecoration: "none" }}>linkedin.com/in/andrew-mihalik-38207a83</a></div>
             </div>
           </div>
         </AnimatedSection>
@@ -194,11 +193,12 @@ export default function ResumeClient() {
                 maxWidth: "680px",
               }}
             >
-              Senior software engineer with 8+ years of experience building
-              distributed systems and developer tooling. Focused on scalable
-              backend architecture, infrastructure automation, and engineering
-              excellence. Passionate about maintaining systems long-term and
-              mentoring engineering teams.
+              Senior Software Engineer with 12+ years of experience building
+              scalable backend systems in C# and .NET. Proven track record in
+              underwriting platforms, identity verification, and enterprise API
+              development. Skilled in designing and scoping large-scale projects,
+              infrastructure-as-code, and leveraging AI-assisted development
+              tools to drive engineering excellence.
             </p>
           </section>
         </AnimatedSection>

@@ -15,9 +15,9 @@ export default function Hero() {
   }, []);
 
   const links = [
-    { label: "GitHub", icon: "↗", href: "https://github.com/yourusername" },
-    { label: "LinkedIn", icon: "↗", href: "https://linkedin.com/in/yourname" },
-    { label: "Resume", icon: "↓", href: "/resume" },
+    { label: "GitHub", icon: "↗", href: "https://github.com/amihali1", external: true },
+    { label: "LinkedIn", icon: "↗", href: "https://www.linkedin.com/in/andrew-mihalik-38207a83/", external: true },
+    { label: "Resume", icon: "↓", href: "/resume", external: false },
   ];
 
   return (
@@ -68,6 +68,8 @@ export default function Hero() {
             color: colors.text,
           }}
         >
+          Andrew Mihalik
+          <br />
           Building software
           <br />
           that{" "}
@@ -86,9 +88,10 @@ export default function Hero() {
             fontWeight: 300,
           }}
         >
-          Senior software engineer focused on distributed systems, developer
-          tooling, and infrastructure. I build things that scale and maintain
-          them for the long haul.
+          Senior Software Engineer with 12+ years of experience building
+          scalable backend systems in C# and .NET. Skilled in underwriting
+          platforms, identity verification, infrastructure-as-code, and
+          leveraging AI-assisted development tools.
         </p>
       </AnimatedSection>
 
@@ -98,6 +101,7 @@ export default function Hero() {
             <a
               key={link.label}
               href={link.href}
+              {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
