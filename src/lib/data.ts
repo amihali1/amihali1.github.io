@@ -34,7 +34,7 @@ export const PROJECTS: Project[] = [
       "A modern portfolio site built with Next.js 15 App Router, React 19, and TypeScript. Features dark/light theme switching, smooth scroll-triggered animations via IntersectionObserver, a grain texture overlay, and a print-ready resume page. Centralized data management keeps content easy to update. Hosted from a self-managed homelab.",
     tags: ["Next.js", "TypeScript", "React", "Tailwind CSS"],
     status: "Active",
-    link: "#",
+    link: "https://amihali1.github.io",
     github: "https://github.com/amihali1/portfolio",
   },
 ];

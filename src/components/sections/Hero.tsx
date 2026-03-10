@@ -16,7 +16,7 @@ export default function Hero() {
 
   const links = [
     { label: "GitHub", icon: "↗", href: "https://github.com/amihali1" },
-    { label: "LinkedIn", icon: "↗", href: "https://linkedin.com/in/andrew-mihalik" },
+    { label: "LinkedIn", icon: "↗", href: "https://www.linkedin.com/in/andrew-mihalik-38207a83/" },
     { label: "Resume", icon: "↓", href: "/resume" },
   ];
 
