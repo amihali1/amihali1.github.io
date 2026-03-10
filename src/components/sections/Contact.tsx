@@ -13,13 +13,28 @@ interface FormData {
 export default function Contact() {
   const { colors } = useTheme();
   const [formData, setFormData] = useState<FormData>({ name: "", email: "", message: "" });
-  const [formStatus, setFormStatus] = useState<"sent" | null>(null);
+  const [formStatus, setFormStatus] = useState<"sending" | "sent" | "error" | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setFormStatus("sent");
-    setTimeout(() => setFormStatus(null), 3000);
-    setFormData({ name: "", email: "", message: "" });
+    setFormStatus("sending");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error("Failed to send");
+
+      setFormStatus("sent");
+      setFormData({ name: "", email: "", message: "" });
+      setTimeout(() => setFormStatus(null), 3000);
+    } catch {
+      setFormStatus("error");
+      setTimeout(() => setFormStatus(null), 3000);
+    }
   };
 
   const inputStyle = {
@@ -132,22 +147,29 @@ export default function Contact() {
             </div>
             <button
               type="submit"
+              disabled={formStatus === "sending"}
               style={{
                 padding: "14px 32px",
-                background: colors.accent,
+                background: formStatus === "sending" ? colors.textMuted : colors.accent,
                 color: colors.bg,
                 border: "none",
                 borderRadius: "6px",
                 fontSize: "14px",
                 fontWeight: 600,
                 fontFamily: "'DM Sans', sans-serif",
-                cursor: "pointer",
+                cursor: formStatus === "sending" ? "not-allowed" : "pointer",
                 transition: "all 0.3s",
                 alignSelf: "flex-start",
                 letterSpacing: "0.02em",
               }}
             >
-              {formStatus === "sent" ? "Message Sent ✓" : "Send Message"}
+              {formStatus === "sending"
+                ? "Sending..."
+                : formStatus === "sent"
+                  ? "Message Sent ✓"
+                  : formStatus === "error"
+                    ? "Failed to Send ✗"
+                    : "Send Message"}
             </button>
           </form>
 
