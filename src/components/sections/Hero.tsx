@@ -15,9 +15,9 @@ export default function Hero() {
   }, []);
 
   const links = [
-    { label: "GitHub", icon: "↗", href: "https://github.com/amihali1" },
-    { label: "LinkedIn", icon: "↗", href: "https://www.linkedin.com/in/andrew-mihalik-38207a83/" },
-    { label: "Resume", icon: "↓", href: "/resume" },
+    { label: "GitHub", icon: "↗", href: "https://github.com/amihali1", external: true },
+    { label: "LinkedIn", icon: "↗", href: "https://www.linkedin.com/in/andrew-mihalik-38207a83/", external: true },
+    { label: "Resume", icon: "↓", href: "/resume", external: false },
   ];
 
   return (
@@ -101,6 +101,7 @@ export default function Hero() {
             <a
               key={link.label}
               href={link.href}
+              {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               style={{
                 display: "inline-flex",
                 alignItems: "center",

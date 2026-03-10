@@ -165,7 +165,7 @@ export default function ResumeClient() {
               }}
             >
               <div><a href="https://github.com/amihali1" target="_blank" rel="noopener noreferrer" style={{ color: colors.textMuted, textDecoration: "none" }}>github.com/amihali1</a></div>
-              <div><a href="https://www.linkedin.com/in/andrew-mihalik-38207a83/" target="_blank" rel="noopener noreferrer" style={{ color: colors.textMuted, textDecoration: "none" }}>linkedin.com/in/andrew-mihalik</a></div>
+              <div><a href="https://www.linkedin.com/in/andrew-mihalik-38207a83/" target="_blank" rel="noopener noreferrer" style={{ color: colors.textMuted, textDecoration: "none" }}>linkedin.com/in/andrew-mihalik-38207a83</a></div>
             </div>
           </div>
         </AnimatedSection>

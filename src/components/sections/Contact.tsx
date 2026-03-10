@@ -19,22 +19,35 @@ export default function Contact() {
     e.preventDefault();
     setFormStatus("sending");
 
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+    if (!accessKey) {
+      console.error("Web3Forms access key is not configured");
+      setFormStatus("error");
+      setTimeout(() => setFormStatus(null), 3000);
+      return;
+    }
+
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+          access_key: accessKey,
           ...formData,
         }),
       });
 
-      if (!res.ok) throw new Error("Failed to send");
+      if (!res.ok) {
+        const body = await res.text().catch(() => "");
+        console.error("Web3Forms submission failed", { status: res.status, body });
+        throw new Error(`Failed to send: ${res.status}`);
+      }
 
       setFormStatus("sent");
       setFormData({ name: "", email: "", message: "" });
       setTimeout(() => setFormStatus(null), 3000);
-    } catch {
+    } catch (error) {
+      console.error("Contact form error:", error);
       setFormStatus("error");
       setTimeout(() => setFormStatus(null), 3000);
     }
@@ -66,7 +79,7 @@ export default function Contact() {
 
   const contactLinks = [
     { label: "GitHub", value: "github.com/amihali1", href: "https://github.com/amihali1" },
-    { label: "LinkedIn", value: "linkedin.com/in/andrew-mihalik", href: "https://www.linkedin.com/in/andrew-mihalik-38207a83/" },
+    { label: "LinkedIn", value: "linkedin.com/in/andrew-mihalik-38207a83", href: "https://www.linkedin.com/in/andrew-mihalik-38207a83/" },
   ];
 
   return (
