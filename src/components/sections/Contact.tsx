@@ -47,9 +47,8 @@ export default function Contact() {
   };
 
   const contactLinks = [
-    { label: "Email", value: "hello@yourdomain.dev", href: "mailto:hello@yourdomain.dev" },
-    { label: "GitHub", value: "github.com/yourusername", href: "https://github.com/yourusername" },
-    { label: "LinkedIn", value: "linkedin.com/in/yourname", href: "https://linkedin.com/in/yourname" },
+    { label: "GitHub", value: "github.com/amihali1", href: "https://github.com/amihali1" },
+    { label: "LinkedIn", value: "linkedin.com/in/andrew-mihalik", href: "https://linkedin.com/in/andrew-mihalik" },
   ];
 
   return (
