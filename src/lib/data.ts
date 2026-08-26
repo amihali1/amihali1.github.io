@@ -2,6 +2,18 @@ import { Project, Experience, SkillGroup } from "./types";
 
 export const PROJECTS: Project[] = [
   {
+    title: "ML Trading Platform",
+    slug: "ml-trading-platform",
+    description:
+      "Self-hosted quantitative trading platform combining XGBoost directional models, LSTM volatility, and local-LLM news sentiment to generate risk-defined equity and options recommendations, paper-traded through Alpaca.",
+    longDescription:
+      "An end-to-end ML trading system running on a homelab GPU. A scheduled pipeline fetches prices, options chains, insider transactions, and news, then scores each ticker with gradient-boosted directional models and an LSTM volatility model, blended with sentiment from a locally-hosted LLM (Ollama). A ranker turns scores into risk-defined recommendations across long, short-pair, vertical-spread, and single-leg options strategies, each with a dollar-capped max loss and per-direction capital reservation. Trades execute against Alpaca's paper API with an automated exit engine, position/capital caps, and a multi-week validation gate before any live capital. The FastAPI backend (PostgreSQL, SQLAlchemy) serves a Next.js dashboard with live position pricing and P&L; the whole stack deploys to the homelab via a self-hosted CI runner on every push.",
+    tags: ["Python", "FastAPI", "XGBoost", "PyTorch", "Next.js", "PostgreSQL", "Alpaca", "Ollama"],
+    status: "In Progress",
+    link: "#",
+    github: "https://github.com/amihali1/stock-analysis",
+  },
+  {
     title: "Agentic AI Dev Pipeline",
     slug: "agentic-ai-dev-pipeline",
     description:
