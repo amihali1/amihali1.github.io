@@ -1,6 +1,7 @@
 "use client";
 
 import { useTheme } from "@/context/ThemeContext";
+import { PROFILE } from "@/lib/data";
 
 export default function Footer() {
   const { colors } = useTheme();
@@ -24,7 +25,7 @@ export default function Footer() {
           color: colors.textMuted,
         }}
       >
-        © {new Date().getFullYear()} — Built with Next.js, hosted from a homelab
+        © {new Date().getFullYear()} — {PROFILE.footerNote}
       </span>
       <span
         style={{

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useTheme } from "@/context/ThemeContext";
-import { EXPERIENCE, SKILLS } from "@/lib/data";
+import { EXPERIENCE, PROFILE, SKILLS } from "@/lib/data";
 import AnimatedSection from "@/components/AnimatedSection";
 
 export default function ResumeClient() {
@@ -193,12 +193,7 @@ export default function ResumeClient() {
                 maxWidth: "680px",
               }}
             >
-              Senior Software Engineer with 12+ years of experience building
-              scalable backend systems in C# and .NET. Proven track record in
-              underwriting platforms, identity verification, and enterprise API
-              development. Skilled in designing and scoping large-scale projects,
-              infrastructure-as-code, and leveraging AI-assisted development
-              tools to drive engineering excellence.
+              {PROFILE.summary}
             </p>
           </section>
         </AnimatedSection>

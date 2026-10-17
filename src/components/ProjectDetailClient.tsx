@@ -206,6 +206,30 @@ export default function ProjectDetailClient({ project }: ProjectDetailClientProp
 
         <AnimatedSection delay={0.3}>
           <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
+            {project.demo && (
+              <a
+                href={project.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  padding: "12px 24px",
+                  border: `1px solid ${colors.accent}`,
+                  borderRadius: "6px",
+                  color: colors.text,
+                  textDecoration: "none",
+                  fontFamily: "'DM Mono', monospace",
+                  fontSize: "13px",
+                  letterSpacing: "0.04em",
+                  transition: "all 0.3s",
+                  background: colors.accentDim,
+                }}
+              >
+                Live demo ↗
+              </a>
+            )}
             {project.github && (
               <a
                 href={project.github}
