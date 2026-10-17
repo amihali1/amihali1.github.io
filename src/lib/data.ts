@@ -10,18 +10,6 @@ export const PROFILE: Profile = {
 
 export const PROJECTS: Project[] = [
   {
-    title: "ML Trading Platform",
-    slug: "ml-trading-platform",
-    description:
-      "Self-hosted quantitative trading platform combining XGBoost directional models, LSTM volatility, and local-LLM news sentiment to generate risk-defined equity and options recommendations, paper-traded through Alpaca.",
-    longDescription:
-      "An end-to-end ML trading system running on a homelab GPU. A scheduled pipeline fetches prices, options chains, insider transactions, and news, then scores each ticker with gradient-boosted directional models and an LSTM volatility model, blended with sentiment from a locally-hosted LLM (Ollama). A ranker turns scores into risk-defined recommendations across long, short-pair, vertical-spread, and single-leg options strategies, each with a dollar-capped max loss and per-direction capital reservation. Trades execute against Alpaca's paper API with an automated exit engine, position/capital caps, and a multi-week validation gate before any live capital. The FastAPI backend (PostgreSQL, SQLAlchemy) serves a Next.js dashboard with live position pricing and P&L; the whole stack deploys to the homelab via a self-hosted CI runner on every push.",
-    tags: ["Python", "FastAPI", "XGBoost", "PyTorch", "Next.js", "PostgreSQL", "Alpaca", "Ollama"],
-    status: "In Progress",
-    link: "#",
-    github: "https://github.com/amihali1/stock-analysis",
-  },
-  {
     title: "Car Deal Tracker",
     slug: "car-deal-tracker",
     description:
@@ -32,6 +20,30 @@ export const PROJECTS: Project[] = [
     status: "Active",
     link: "#",
     github: "https://github.com/amihali1/car-deal-tracker",
+  },
+  {
+    title: "Agent Memory System",
+    slug: "agent-memory-system",
+    description:
+      "Local-first, tiered memory for coding agents like Claude Code and Cursor: agents record dated facts, a reflection loop distills related facts into reusable skills, and per-domain maps index it all. I use it in every development session.",
+    longDescription:
+      "Most agent memory is a flat pile of notes that gets appended to and rarely re-read. This treats memory as a system with tiers and a promotion loop. During a session, agents write one episodic fact per file the moment they learn something non-obvious; at session start they load a slim index and only the per-domain map for the current project. A reflection skill periodically finds clusters of three or more related facts, distills them into a procedural playbook (a Claude Code SKILL.md), and archives the raw notes, so memory compounds instead of just growing. Everything is plain, git-versioned Markdown with wiki links, readable as an Obsidian vault. Session-start and stop hooks load context and auto-commit the vault. The public repo is the framework only: the real vault stays private and backed up to my homelab, and a pre-commit hook plus a CI scan block private IPs, token formats, and denylisted hostnames from ever entering a commit. The design borrows from Generative Agents' reflection, MemGPT/Letta's tiered memory, and Reflexion.",
+    tags: ["Claude Code", "Agent Skills", "Markdown", "Git", "Bash", "PowerShell"],
+    status: "Active",
+    link: "#",
+    github: "https://github.com/amihali1/agent-memory-system",
+  },
+  {
+    title: "ML Trading Platform",
+    slug: "ml-trading-platform",
+    description:
+      "Self-hosted quantitative trading platform combining XGBoost directional models, LSTM volatility, and local-LLM news sentiment to generate risk-defined equity and options recommendations, paper-traded through Alpaca.",
+    longDescription:
+      "An end-to-end ML trading system running on a homelab GPU. A scheduled pipeline fetches prices, options chains, insider transactions, and news, then scores each ticker with gradient-boosted directional models and an LSTM volatility model, blended with sentiment from a locally-hosted LLM (Ollama). A ranker turns scores into risk-defined recommendations across long, short-pair, vertical-spread, and single-leg options strategies, each with a dollar-capped max loss and per-direction capital reservation. Trades execute against Alpaca's paper API with an automated exit engine, position/capital caps, and a multi-week validation gate before any live capital. The FastAPI backend (PostgreSQL, SQLAlchemy) serves a Next.js dashboard with live position pricing and P&L; the whole stack deploys to the homelab via a self-hosted CI runner on every push.",
+    tags: ["Python", "FastAPI", "XGBoost", "PyTorch", "Next.js", "PostgreSQL", "Alpaca", "Ollama"],
+    status: "In Progress",
+    link: "#",
+    github: "https://github.com/amihali1/stock-analysis",
   },
   {
     title: "Skycast",
@@ -57,18 +69,6 @@ export const PROJECTS: Project[] = [
     status: "In Progress",
     link: "#",
     github: "https://github.com/amihali1/sticklers-gate",
-  },
-  {
-    title: "Agentic AI Dev Pipeline",
-    slug: "agentic-ai-dev-pipeline",
-    description:
-      "Multi-agent code pipeline powered by Claude with SQLite-backed memory, running designer, engineer, tester, and reviewer agents in a self-correcting loop.",
-    longDescription:
-      "A multi-agent development pipeline built on the Anthropic SDK where specialized agents — designer, engineer, tester, and reviewer — collaborate sequentially on a task. The tester and reviewer can send work back to the engineer for revisions, up to a configurable retry limit, before the pipeline continues forward. A SQLite memory store gives each agent recall of similar past work, using SHA-256 hashing for exact-match lookup with a recency fallback. The entire system is written in TypeScript and designed to be composable: agents are plain config objects, making it easy to add new roles or swap models.",
-    tags: ["TypeScript", "Anthropic SDK", "SQLite", "Multi-Agent"],
-    status: "In Progress",
-    link: "#",
-    github: "https://github.com/amihali1/agent-orchestrator",
   },
   {
     title: "Homelab Infrastructure",
