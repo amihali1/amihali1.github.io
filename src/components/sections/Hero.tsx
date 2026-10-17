@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
 import { useTheme } from "@/context/ThemeContext";
-import { SKILLS } from "@/lib/data";
+import { PROFILE, SKILLS } from "@/lib/data";
 
 export default function Hero() {
   const { colors } = useTheme();
@@ -88,10 +88,7 @@ export default function Hero() {
             fontWeight: 300,
           }}
         >
-          Senior Software Engineer with 12+ years of experience building
-          scalable backend systems in C# and .NET. Skilled in underwriting
-          platforms, identity verification, infrastructure-as-code, and
-          leveraging AI-assisted development tools.
+          {PROFILE.heroBlurb}
         </p>
       </AnimatedSection>
 

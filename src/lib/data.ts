@@ -1,4 +1,12 @@
-import { Project, Experience, SkillGroup } from "./types";
+import { Project, Experience, SkillGroup, Profile } from "./types";
+
+export const PROFILE: Profile = {
+  heroBlurb:
+    "Senior backend engineer with 12+ years of software engineering experience, including 7+ years building C#/.NET services. For the past four years at Zip I've built identity verification and fraud systems, from vendor research and technical design through production rollout.",
+  summary:
+    "Senior backend engineer with 12+ years of software engineering experience, including 7+ years building C#/.NET services. For the past four years at Zip, built identity verification and fraud systems end to end: integrated identity, document, bank-data, and fraud-screening providers, and led the move to a new primary identity verification provider and the Plaid bank-data verification program from vendor research and technical design through shadow-mode validation and production rollout. Experienced leading multi-engineer programs, building underwriting and decisioning services, and using AI-assisted development tools.",
+  footerNote: "Built with Next.js, deployed to GitHub Pages",
+};
 
 export const PROJECTS: Project[] = [
   {
@@ -14,16 +22,53 @@ export const PROJECTS: Project[] = [
     github: "https://github.com/amihali1/stock-analysis",
   },
   {
+    title: "Car Deal Tracker",
+    slug: "car-deal-tracker",
+    description:
+      "Finds the best-value used car for any make and model: parses saved-search alert emails from six car sites, scores every listing against a configurable fair-value model, and pushes real deals to my phone.",
+    longDescription:
+      "Built to hunt for a specific used truck, then generalized so anyone can point it at their own car. Saved searches on CarGurus, Cars.com, Autotrader, Carvana, CarMax, and Facebook Marketplace send alert emails to a dedicated inbox; a scheduled job reads them over IMAP, and a heuristic parser extracts price, mileage, trim, VIN, dealer, location, body style, and packages while coping with each site's layout quirks (prices above titles, search-radius footers that look like odometers, click-tracking links). The vehicle — make, model, wanted trims, body styles, must-have packages and what each is worth — is a profile in one config file compiled into the parser's patterns, so nothing is hard-coded to one car. Each listing gets a deal score (fair value minus all-in cost including dealer fees and travel), ranked pessimistically when an email leaves out a must-have. SQLite keeps price history and de-duplicates the same car across sites; ntfy pushes new listings and price drops, bundles bursts, and warns when a site's email format changes. A dependency-free web dashboard, deployed with Docker and reachable privately over Tailscale, ranks everything and records 'wrong info' reports with the source email so parser fixes come with regression tests. Python standard library only, with a pytest suite in CI.",
+    tags: ["Python", "SQLite", "IMAP", "Docker", "Tailscale", "ntfy", "pytest"],
+    status: "Active",
+    link: "#",
+    github: "https://github.com/amihali1/car-deal-tracker",
+  },
+  {
+    title: "Skycast",
+    slug: "skycast",
+    description:
+      "Ad-free weather app from one Flutter codebase for Android and the web, with a radar nowcast and a small ML model trained on NEXRAD archives to improve it.",
+    longDescription:
+      "Every mainstream weather app had become an ad delivery vehicle, so I built my own: no ads, trackers, accounts, or API keys. One Dart/Flutter codebase targets Android and the web, using Open-Meteo for forecasts, geocoding, and air quality and NEXRAD radar imagery from the Iowa Environmental Mesonet. It shows current conditions, a 24-hour strip, an 8-day forecast, US AQI, and a 'next 2 hours' rain nowcast that advects radar echoes along their estimated motion. A Python/TensorFlow pipeline trains a residual U-Net (~800k parameters, 0.84 MB int8 TFLite) on ~3,600 radar sequences to learn storm growth and decay on top of that motion; it beats the Lagrangian-persistence baseline by about 32% on held-out data. GitHub Actions tests the app and deploys the web build on every push.",
+    tags: ["Flutter", "Dart", "TensorFlow Lite", "Python", "Open-Meteo", "GitHub Actions"],
+    status: "Active",
+    link: "https://amihali1.github.io/skycast/",
+    demo: "https://amihali1.github.io/skycast/",
+    github: "https://github.com/amihali1/skycast",
+  },
+  {
+    title: "Stickler's Gate",
+    slug: "sticklers-gate",
+    description:
+      "Turn-based tactical RPG for Android and iOS in Unity and C#: a stick-figure parody of Baldur's Gate built on D&D 5e-style rules.",
+    longDescription:
+      "A mobile RPG that pairs genuine stakes with comedic writing. d20 rolls, ability scores, armor class, saving throws, and advantage/disadvantage drive a grid-based tactical combat system with movement, ranges, and per-encounter battlefields. The architecture is ScriptableObject-driven with an event-based UI, so classes, enemies, abilities, items, and encounters are data assets rather than code. Combat supports multi-target abilities, enemy AI that scores its targets, and an inventory with consumables, with a 12-class roster planned. Quality is enforced by EditMode tests in GitHub Actions (game-ci) on every pull request and a headless autoplay harness that plays full battles with an AI-controlled party, recording screenshots, combat logs, and balance statistics.",
+    tags: ["Unity", "C#", "ScriptableObjects", "GitHub Actions", "Game Design"],
+    status: "In Progress",
+    link: "#",
+    github: "https://github.com/amihali1/sticklers-gate",
+  },
+  {
     title: "Agentic AI Dev Pipeline",
     slug: "agentic-ai-dev-pipeline",
     description:
-      "Multi-agent code pipeline powered by Claude with SQLite-backed memory, running engineer, tester, and reviewer agents in a self-correcting loop.",
+      "Multi-agent code pipeline powered by Claude with SQLite-backed memory, running designer, engineer, tester, and reviewer agents in a self-correcting loop.",
     longDescription:
-      "A multi-agent development pipeline built on the Anthropic SDK where specialized agents — engineer, tester, and reviewer — collaborate sequentially on a task. The reviewer can trigger revisions, sending the pipeline back to any upstream agent up to a configurable retry limit. A SQLite memory store (via better-sqlite3) gives each agent recall of its previous outputs, using SHA-256 hashing for exact-match lookup with a recency fallback. The entire system is written in TypeScript and designed to be composable: agents are plain config objects, making it easy to add new roles or swap models.",
+      "A multi-agent development pipeline built on the Anthropic SDK where specialized agents — designer, engineer, tester, and reviewer — collaborate sequentially on a task. The tester and reviewer can send work back to the engineer for revisions, up to a configurable retry limit, before the pipeline continues forward. A SQLite memory store gives each agent recall of similar past work, using SHA-256 hashing for exact-match lookup with a recency fallback. The entire system is written in TypeScript and designed to be composable: agents are plain config objects, making it easy to add new roles or swap models.",
     tags: ["TypeScript", "Anthropic SDK", "SQLite", "Multi-Agent"],
     status: "In Progress",
     link: "#",
-    github: "https://github.com/amihali1/agent-pipeline",
+    github: "https://github.com/amihali1/agent-orchestrator",
   },
   {
     title: "Homelab Infrastructure",
@@ -43,11 +88,11 @@ export const PROJECTS: Project[] = [
     description:
       "Personal portfolio built with Next.js 15, TypeScript, and Tailwind CSS with dark/light theming and scroll-triggered animations.",
     longDescription:
-      "A modern portfolio site built with Next.js 15 App Router, React 19, and TypeScript. Features dark/light theme switching, smooth scroll-triggered animations via IntersectionObserver, a grain texture overlay, and a print-ready resume page. Centralized data management keeps content easy to update. Hosted from a self-managed homelab.",
+      "A modern portfolio site built with Next.js 15 App Router, React 19, and TypeScript. Features dark/light theme switching, smooth scroll-triggered animations via IntersectionObserver, a grain texture overlay, and a print-ready resume page. Centralized data management keeps content easy to update. Statically exported and deployed to GitHub Pages by GitHub Actions on every push.",
     tags: ["Next.js", "TypeScript", "React", "Tailwind CSS"],
     status: "Active",
     link: "https://amihali1.github.io",
-    github: "https://github.com/amihali1/portfolio",
+    github: "https://github.com/amihali1/amihali1.github.io",
   },
 ];
 
@@ -57,8 +102,8 @@ export const EXPERIENCE: Experience[] = [
     company: "Zip Co",
     period: "2022 — Present",
     description:
-      "Design, develop, and maintain backend services for underwriting, identity verification, and third-party integrations. Architect and scope large-scale projects from requirements through implementation. Build infrastructure-as-code with Terraform, implement Redis caching strategies, and write BDD integration tests.",
-    tech: ["C#", ".NET", "Terraform", "Redis", "Azure DevOps", "BDD"],
+      "Focused on identity verification and fraud since 2023. Led the integration of a new primary identity verification provider end to end — vendor research, technical design, a new provider gateway (request/response mapping, reason codes, PII scrubbing), shadow-mode validation, and the production cutover that replaced the legacy provider — and rolled out a third-party first-party fraud model from 25% to 100% of traffic with zero failed vendor calls. Led the Plaid bank-data IDV program: sized and designed it, scoped it into 6 epics and 32 stories across the team, and personally delivered ~60 of them. Retired two legacy IDV vendors, built document and selfie verification flows and adverse action notices, and integrated additional fraud-screening providers. Also built bank-data underwriting and ML model integrations in the decision engine, credit-line products, and platform upgrades (.NET 10, Kubernetes and Redis migration, backend SLOs). Software Engineer 2022–2025; Senior since 2025.",
+    tech: ["C#", ".NET", "Plaid", "Kubernetes", "Redis", "Azure Service Bus", "Dynatrace", "Terraform"],
   },
   {
     role: "Backend Software Engineer",
@@ -71,26 +116,42 @@ export const EXPERIENCE: Experience[] = [
   {
     role: "Programmer Analyst III",
     company: "Change Healthcare",
-    period: "Aug 2015 — Dec 2019",
+    period: "Sep 2018 — Dec 2019",
+    description: "Developed data validation and file parsing programs using Informatica.",
+    tech: ["Informatica", "SQL"],
+  },
+  {
+    role: "Software Engineer II / Form Developer II",
+    company: "Change Healthcare",
+    period: "Aug 2015 — Aug 2018",
     description:
-      "Built automated data entry software to post payments and adjustments to healthcare information systems. Developed data validation tools, OCR-based claim processing, and file parsing programs using .NET and Informatica.",
-    tech: ["C#", ".NET", "Informatica", "OCR", "SQL"],
+      "Built AccuPost, automated data entry software in C# that posted payments and adjustments to healthcare information systems. Developed OCR-based claim form processing.",
+    tech: ["C#", ".NET", "OCR"],
   },
   {
     role: "Applications Developer II",
     company: "International Paper",
     period: "Jul 2014 — Aug 2015",
     description:
-      "Built mobile applications with backend services for data transfer between SAP databases and devices. Developed manufacturing process software using ABAP in SAP and trained new hires on the platform.",
-    tech: ["SAP", "ABAP", "Mobile", "C#"],
+      "Built mobile applications and SAP (ABAP) manufacturing software for data transfer between SAP and devices; trained new hires on the platform.",
+    tech: ["SAP", "ABAP", "Mobile"],
   },
 ];
 
 export const SKILLS: SkillGroup[] = [
   { category: "Languages", items: ["C#", "SQL", "TypeScript", "JavaScript", "Python", "Java"] },
-  { category: "Frameworks & Tools", items: [".NET / .NET Core", "Terraform", "Redis", "Docker", "CI/CD Pipelines", "BDD Testing"] },
+  {
+    category: "Frameworks & Tools",
+    items: [".NET / .NET Core", "Terraform", "Redis", "Docker", "Kubernetes", "Azure Service Bus", "Camunda", "Auth0",
+      "Databricks", "Dynatrace", "CI/CD Pipelines", "BDD Testing"],
+  },
+  {
+    category: "Domain",
+    items: ["Identity verification (KYC)", "Fraud prevention", "Underwriting & decisioning", "PII handling",
+      "Adverse action notices", "Feature-flagged rollouts"],
+  },
   { category: "AI & Productivity", items: ["Claude Code", "ChatGPT", "Codex"] },
-  { category: "Software", items: ["Visual Studio", "JetBrains Rider", "Postman", "Azure DevOps", "AWS"] },
+  { category: "Software", items: ["Visual Studio", "JetBrains Rider", "Azure DevOps", "AWS"] },
   { category: "Version Control", items: ["Git", "GitHub", "GitLab", "Azure DevOps (TFS)"] },
 ];
 

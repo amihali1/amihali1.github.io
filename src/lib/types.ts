@@ -6,7 +6,14 @@ export interface Project {
   tags: string[];
   status: "Active" | "In Progress" | "Completed";
   link: string;
+  demo?: string;
   github?: string;
+}
+
+export interface Profile {
+  heroBlurb: string;
+  summary: string;
+  footerNote: string;
 }
 
 export interface Experience {
