@@ -150,7 +150,7 @@ export const SKILLS: SkillGroup[] = [
     items: ["Identity verification (KYC)", "Fraud prevention", "Underwriting & decisioning", "PII handling",
       "Adverse action notices", "Feature-flagged rollouts"],
   },
-  { category: "AI & Productivity", items: ["Claude Code", "ChatGPT", "Codex"] },
+  { category: "AI & Productivity", items: ["Claude Code", "Cursor", "ChatGPT", "Codex", "herdr"] },
   { category: "Software", items: ["Visual Studio", "JetBrains Rider", "Azure DevOps", "AWS"] },
   { category: "Version Control", items: ["Git", "GitHub", "GitLab", "Azure DevOps (TFS)"] },
 ];
