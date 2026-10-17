@@ -10,6 +10,30 @@ export const PROFILE: Profile = {
 
 export const PROJECTS: Project[] = [
   {
+    title: "Car Deal Tracker",
+    slug: "car-deal-tracker",
+    description:
+      "Finds the best-value used car for any make and model: parses saved-search alert emails from six car sites, scores every listing against a configurable fair-value model, and pushes real deals to my phone.",
+    longDescription:
+      "Built to hunt for a specific used truck, then generalized so anyone can point it at their own car. Saved searches on CarGurus, Cars.com, Autotrader, Carvana, CarMax, and Facebook Marketplace send alert emails to a dedicated inbox; a scheduled job reads them over IMAP, and a heuristic parser extracts price, mileage, trim, VIN, dealer, location, body style, and packages while coping with each site's layout quirks (prices above titles, search-radius footers that look like odometers, click-tracking links). The vehicle — make, model, wanted trims, body styles, must-have packages and what each is worth — is a profile in one config file compiled into the parser's patterns, so nothing is hard-coded to one car. Each listing gets a deal score (fair value minus all-in cost including dealer fees and travel), ranked pessimistically when an email leaves out a must-have. SQLite keeps price history and de-duplicates the same car across sites; ntfy pushes new listings and price drops, bundles bursts, and warns when a site's email format changes. A dependency-free web dashboard, deployed with Docker and reachable privately over Tailscale, ranks everything and records 'wrong info' reports with the source email so parser fixes come with regression tests. Python standard library only, with a pytest suite in CI.",
+    tags: ["Python", "SQLite", "IMAP", "Docker", "Tailscale", "ntfy", "pytest"],
+    status: "Active",
+    link: "#",
+    github: "https://github.com/amihali1/car-deal-tracker",
+  },
+  {
+    title: "Agent Memory System",
+    slug: "agent-memory-system",
+    description:
+      "Local-first, tiered memory for coding agents like Claude Code and Cursor: agents record dated facts, a reflection loop distills related facts into reusable skills, and per-domain maps index it all. I use it in every development session.",
+    longDescription:
+      "Most agent memory is a flat pile of notes that gets appended to and rarely re-read. This treats memory as a system with tiers and a promotion loop. During a session, agents write one episodic fact per file the moment they learn something non-obvious; at session start they load a slim index and only the per-domain map for the current project. A reflection skill periodically finds clusters of three or more related facts, distills them into a procedural playbook (a Claude Code SKILL.md), and archives the raw notes, so memory compounds instead of just growing. Everything is plain, git-versioned Markdown with wiki links, readable as an Obsidian vault. Session-start and stop hooks load context and auto-commit the vault. The public repo is the framework only: the real vault stays private and backed up to my homelab, and a pre-commit hook plus a CI scan block private IPs, token formats, and denylisted hostnames from ever entering a commit. The design borrows from Generative Agents' reflection, MemGPT/Letta's tiered memory, and Reflexion.",
+    tags: ["Claude Code", "Agent Skills", "Markdown", "Git", "Bash", "PowerShell"],
+    status: "Active",
+    link: "#",
+    github: "https://github.com/amihali1/agent-memory-system",
+  },
+  {
     title: "ML Trading Platform",
     slug: "ml-trading-platform",
     description:
@@ -22,16 +46,16 @@ export const PROJECTS: Project[] = [
     github: "https://github.com/amihali1/stock-analysis",
   },
   {
-    title: "Car Deal Tracker",
-    slug: "car-deal-tracker",
+    title: "Agentic AI Dev Pipeline",
+    slug: "agentic-ai-dev-pipeline",
     description:
-      "Finds the best-value used car for any make and model: parses saved-search alert emails from six car sites, scores every listing against a configurable fair-value model, and pushes real deals to my phone.",
+      "Token-aware multi-agent orchestrator that runs budgeted coding tasks against existing repos, using Claude for hard steps and a local Ollama model for cheap ones, and commits only when the project's real build and test gates pass.",
     longDescription:
-      "Built to hunt for a specific used truck, then generalized so anyone can point it at their own car. Saved searches on CarGurus, Cars.com, Autotrader, Carvana, CarMax, and Facebook Marketplace send alert emails to a dedicated inbox; a scheduled job reads them over IMAP, and a heuristic parser extracts price, mileage, trim, VIN, dealer, location, body style, and packages while coping with each site's layout quirks (prices above titles, search-radius footers that look like odometers, click-tracking links). The vehicle — make, model, wanted trims, body styles, must-have packages and what each is worth — is a profile in one config file compiled into the parser's patterns, so nothing is hard-coded to one car. Each listing gets a deal score (fair value minus all-in cost including dealer fees and travel), ranked pessimistically when an email leaves out a must-have. SQLite keeps price history and de-duplicates the same car across sites; ntfy pushes new listings and price drops, bundles bursts, and warns when a site's email format changes. A dependency-free web dashboard, deployed with Docker and reachable privately over Tailscale, ranks everything and records 'wrong info' reports with the source email so parser fixes come with regression tests. Python standard library only, with a pytest suite in CI.",
-    tags: ["Python", "SQLite", "IMAP", "Docker", "Tailscale", "ntfy", "pytest"],
-    status: "Active",
+      "Designer, engineer, tester, and reviewer agents run in sequence over a provider abstraction with three tiers: Claude through the Claude Agent SDK (drawing on a subscription rather than metered API credits), Claude Haiku, and a local Qwen model on my homelab GPU through Ollama. Workspace mode points the pipeline at an existing repo through a per-project profile of real gate commands; a verifier runs the project's actual typecheck, build, and tests, feeds failures back to the engineer, escalates from the local model to Claude after repeated failures, and commits to a branch only when everything passes. Per-run and per-day token budgets pause runs between steps, every step is checkpointed to SQLite so paused runs resume where they left off, and local tokens are tracked separately so they never count against paid limits. A planner turns a goal into an ordered task backlog that a backlog driver works through, and a bootstrap command creates a new repo that passes its gates from day one. I've used it for a handful of runs against this portfolio and Stickler's Gate, including a local-model run that documented a C# script behind a Unity batch-mode compile gate and landed as a pull request. Written in TypeScript with a Vitest suite.",
+    tags: ["TypeScript", "Claude Agent SDK", "Ollama", "SQLite", "Vitest", "Multi-Agent"],
+    status: "In Progress",
     link: "#",
-    github: "https://github.com/amihali1/car-deal-tracker",
+    github: "https://github.com/amihali1/agent-orchestrator",
   },
   {
     title: "Skycast",
@@ -57,18 +81,6 @@ export const PROJECTS: Project[] = [
     status: "In Progress",
     link: "#",
     github: "https://github.com/amihali1/sticklers-gate",
-  },
-  {
-    title: "Agentic AI Dev Pipeline",
-    slug: "agentic-ai-dev-pipeline",
-    description:
-      "Multi-agent code pipeline powered by Claude with SQLite-backed memory, running designer, engineer, tester, and reviewer agents in a self-correcting loop.",
-    longDescription:
-      "A multi-agent development pipeline built on the Anthropic SDK where specialized agents — designer, engineer, tester, and reviewer — collaborate sequentially on a task. The tester and reviewer can send work back to the engineer for revisions, up to a configurable retry limit, before the pipeline continues forward. A SQLite memory store gives each agent recall of similar past work, using SHA-256 hashing for exact-match lookup with a recency fallback. The entire system is written in TypeScript and designed to be composable: agents are plain config objects, making it easy to add new roles or swap models.",
-    tags: ["TypeScript", "Anthropic SDK", "SQLite", "Multi-Agent"],
-    status: "In Progress",
-    link: "#",
-    github: "https://github.com/amihali1/agent-orchestrator",
   },
   {
     title: "Homelab Infrastructure",
