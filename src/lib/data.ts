@@ -46,6 +46,18 @@ export const PROJECTS: Project[] = [
     github: "https://github.com/amihali1/stock-analysis",
   },
   {
+    title: "Agentic AI Dev Pipeline",
+    slug: "agentic-ai-dev-pipeline",
+    description:
+      "Token-aware multi-agent orchestrator that runs budgeted coding tasks against existing repos, using Claude for hard steps and a local Ollama model for cheap ones, and commits only when the project's real build and test gates pass.",
+    longDescription:
+      "Designer, engineer, tester, and reviewer agents run in sequence over a provider abstraction with three tiers: Claude through the Claude Agent SDK (drawing on a subscription rather than metered API credits), Claude Haiku, and a local Qwen model on my homelab GPU through Ollama. Workspace mode points the pipeline at an existing repo through a per-project profile of real gate commands; a verifier runs the project's actual typecheck, build, and tests, feeds failures back to the engineer, escalates from the local model to Claude after repeated failures, and commits to a branch only when everything passes. Per-run and per-day token budgets pause runs between steps, every step is checkpointed to SQLite so paused runs resume where they left off, and local tokens are tracked separately so they never count against paid limits. A planner turns a goal into an ordered task backlog that a backlog driver works through, and a bootstrap command creates a new repo that passes its gates from day one. I've used it for a handful of runs against this portfolio and Stickler's Gate, including a local-model run that documented a C# script behind a Unity batch-mode compile gate and landed as a pull request. Written in TypeScript with a Vitest suite.",
+    tags: ["TypeScript", "Claude Agent SDK", "Ollama", "SQLite", "Vitest", "Multi-Agent"],
+    status: "In Progress",
+    link: "#",
+    github: "https://github.com/amihali1/agent-orchestrator",
+  },
+  {
     title: "Skycast",
     slug: "skycast",
     description:
