@@ -102,7 +102,7 @@ export const EXPERIENCE: Experience[] = [
     company: "Zip Co",
     period: "2022 — Present",
     description:
-      "Focused on identity verification and fraud since 2023. Led the integration of a new primary identity verification provider end to end — vendor research, technical design, a new provider gateway (request/response mapping, reason codes, PII scrubbing), shadow-mode validation, and the production cutover that replaced the legacy provider — and rolled out a third-party first-party fraud model from 25% to 100% of traffic with zero failed vendor calls. Led the Plaid bank-data IDV program ahead of its October 2026 rollout: sized and designed it, scoped it into 6 epics and 32 stories across the team, personally delivered about 60 tickets, and built it to be configurable for a future cashflow underwriting flow. Retired two legacy IDV vendors, worked on the team that delivered document and selfie verification (customer-unblock decisioning, adverse action notices), and helped build a fraud-screening order gateway. Also worked on bank-data underwriting, ML model integrations in the decision engine, credit-line products, and platform upgrades (.NET 10, Kubernetes and Redis migration, backend SLOs). Software Engineer 2022–2025; Senior since 2025.",
+      "Focused on identity verification and fraud since 2023. Led the integration of a new primary identity verification provider end to end — vendor research, technical design, a new provider gateway (request/response mapping, reason codes, PII scrubbing), shadow-mode validation, and the production cutover that replaced the legacy provider — and rolled out a third-party first-party fraud model from 25% to 100% of traffic with zero failed vendor calls. Led the Plaid bank-data IDV program ahead of its October 2026 rollout: sized and designed it, scoped it into epics and stories across the team, built core pieces of it, and made it configurable for a future cashflow underwriting flow. Retired two legacy IDV vendors, worked on the team that delivered document and selfie verification (customer-unblock decisioning, adverse action notices), and helped build a fraud-screening order gateway. Also worked on bank-data underwriting, credit-line products, and platform upgrades (.NET 10, Kubernetes and Redis migration, backend SLOs). Software Engineer 2022–2025; Senior since 2025.",
     tech: ["C#", ".NET", "Plaid", "Kubernetes", "Redis", "Azure Service Bus", "Dynatrace", "Terraform"],
   },
   {
@@ -143,7 +143,7 @@ export const SKILLS: SkillGroup[] = [
   {
     category: "Frameworks & Tools",
     items: [".NET / .NET Core", "Terraform", "Redis", "Docker", "Kubernetes", "Azure Service Bus", "Camunda", "Auth0",
-      "Databricks", "Dynatrace", "CI/CD Pipelines", "BDD Testing"],
+      "Dynatrace", "CI/CD Pipelines", "BDD Testing"],
   },
   {
     category: "Domain",
