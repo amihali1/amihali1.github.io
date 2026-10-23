@@ -4,7 +4,7 @@ export const PROFILE: Profile = {
   heroBlurb:
     "Senior backend engineer with 12+ years of software engineering experience, including 7+ years building C#/.NET services. For the past four years at Zip I've built identity verification and fraud systems, from technical design through production rollout.",
   summary:
-    "Senior backend engineer with 12+ years of software engineering experience, including 7+ years building C#/.NET services. For the past four years at Zip, built identity verification and fraud systems: led the technical design, build, shadow-mode validation, and production cutover of Zip's move to a new primary identity verification provider, led the Plaid bank-data verification program ahead of its October 2026 rollout, and contributed to the team's document verification and fraud-screening work. Experienced scoping and planning work for other engineers, building underwriting and decisioning services, and using AI-assisted development tools.",
+    "Senior backend engineer with 12+ years of software engineering experience, including 7+ years building C#/.NET services. For the past four years at Zip, built identity verification and fraud systems: led the technical design, build, shadow-mode validation, and production cutover of Zip's move to a new primary identity verification provider, led the Plaid bank-data verification program through its October 2026 production launch, and contributed to the team's document verification and fraud-screening work. Experienced scoping and planning work for other engineers, building underwriting and decisioning services, and working AI-native with Claude Code and Codex.",
   footerNote: "Built with Next.js, deployed to GitHub Pages",
 };
 
@@ -25,7 +25,7 @@ export const PROJECTS: Project[] = [
     title: "Agent Memory System",
     slug: "agent-memory-system",
     description:
-      "Local-first, tiered memory for coding agents like Claude Code and Cursor: agents record dated facts, a reflection loop distills related facts into reusable skills, and per-domain maps index it all. I use it in every development session.",
+      "Local-first, tiered memory for coding agents like Claude Code, Codex, and Cursor: agents record dated facts, a reflection loop distills related facts into reusable skills, and per-domain maps index it all. I use it in every development session.",
     longDescription:
       "Most agent memory is a flat pile of notes that gets appended to and rarely re-read. This treats memory as a system with tiers and a promotion loop. During a session, agents write one episodic fact per file the moment they learn something non-obvious; at session start they load a slim index and only the per-domain map for the current project. A reflection skill periodically finds clusters of three or more related facts, distills them into a procedural playbook (a Claude Code SKILL.md), and archives the raw notes, so memory compounds instead of just growing. Everything is plain, git-versioned Markdown with wiki links, readable as an Obsidian vault. Session-start and stop hooks load context and auto-commit the vault. The public repo is the framework only: the real vault stays private and backed up to my homelab, and a pre-commit hook plus a CI scan block private IPs, token formats, and denylisted hostnames from ever entering a commit. The design borrows from Generative Agents' reflection, MemGPT/Letta's tiered memory, and Reflexion.",
     tags: ["Claude Code", "Agent Skills", "Markdown", "Git", "Bash", "PowerShell"],
@@ -114,8 +114,8 @@ export const EXPERIENCE: Experience[] = [
     company: "Zip Co",
     period: "2022 — Present",
     description:
-      "Focused on identity verification and fraud since 2023. Led the technical side of Zip's move to a new primary identity verification provider — technical design, a new provider gateway (request/response mapping, reason codes, PII scrubbing), shadow-mode validation, and the production cutover that consolidated two IDV vendors into one, with higher approval rates, lower loss rates, and zero incidents — and rolled out a third-party first-party fraud model from 25% to 100% of traffic with zero failed vendor calls. Led the Plaid bank-data IDV program ahead of its October 2026 rollout: sized and designed it, broke it into epics and stories, built most of it after the second engineer was reassigned, and made it configurable for a future cashflow underwriting flow. Built mock services for the primary identity verification provider and Plaid to run testing scenarios their sandboxes couldn't support. Retired two legacy IDV vendors, worked with the team to refactor the document and selfie verification flow that lets customers automatically blocked on fraud signals verify and regain access, and helped build a fraud-screening order gateway. Also worked on bank-data underwriting, credit-line products, and platform upgrades (.NET 10, Kubernetes and Redis migration, backend SLOs). Software Engineer 2022–2025; Senior since 2025.",
-    tech: ["C#", ".NET", "Plaid", "Kubernetes", "Redis", "Azure Service Bus", "Dynatrace", "Terraform"],
+      "Focused on identity verification and fraud since 2023. Led the technical side of Zip's move to a new primary identity verification provider — technical design, a new provider gateway (request/response mapping, reason codes, PII scrubbing), shadow-mode validation, and the production cutover that consolidated two IDV vendors into one, raising approval rates 8% with stable loss rates and zero incidents — and rolled out a third-party first-party fraud model from 25% to 100% of traffic with zero failed vendor calls. Led the Plaid bank-data IDV program, which went live in October 2026 on a 5% initial ramp of a flow serving ~8,000 customers per month: sized and designed it, broke it into epics and stories, built most of it after the second engineer was reassigned, and made it configurable for a future cashflow underwriting flow. Built mock services for the primary identity verification provider and Plaid to run testing scenarios their sandboxes couldn't support. Retired two legacy IDV vendors, refactored the document and selfie verification flow that lets customers automatically blocked on fraud signals verify and regain access, and helped build a fraud-screening order gateway. Built the decisioning piece of Zip's cashflow underwriting, aggregating customers' bank cashflow data and sending it to Camunda for assessment, and also worked on credit-line products and platform upgrades (.NET 10, the messaging library, backend SLOs). Work AI-native day to day with Claude Code and Codex, reviewing, testing, and verifying all agent output before it merges. Software Engineer 2022–2025; Senior since 2025.",
+    tech: ["C#", ".NET", "Plaid", "Camunda", "Azure Service Bus", "Dynatrace", "Terraform", "Claude Code"],
   },
   {
     role: "Backend Software Engineer",
@@ -162,7 +162,7 @@ export const SKILLS: SkillGroup[] = [
     items: ["Identity verification (KYC)", "Fraud prevention", "Underwriting & decisioning", "PII handling",
       "Adverse action notices", "Feature-flagged rollouts"],
   },
-  { category: "AI & Productivity", items: ["Claude Code", "Cursor", "ChatGPT", "Codex", "herdr"] },
+  { category: "AI & Productivity", items: ["Claude Code", "Codex", "Cursor", "ChatGPT", "herdr"] },
   { category: "Software", items: ["Visual Studio", "JetBrains Rider", "Azure DevOps", "AWS"] },
   { category: "Version Control", items: ["Git", "GitHub", "GitLab", "Azure DevOps (TFS)"] },
 ];
