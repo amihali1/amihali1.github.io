@@ -25,7 +25,7 @@ export const PROJECTS: Project[] = [
     title: "Agent Memory System",
     slug: "agent-memory-system",
     description:
-      "Local-first, tiered memory for coding agents like Claude Code, Codex, and Cursor: agents record dated facts, a reflection loop distills related facts into reusable skills, and per-domain maps index it all. I use it in every development session.",
+      "Local-first, tiered memory for Claude Code: agents record dated facts, a reflection loop distills related facts into reusable skills, and per-domain maps index it all. I use it in every development session.",
     longDescription:
       "Most agent memory is a flat pile of notes that gets appended to and rarely re-read. This treats memory as a system with tiers and a promotion loop. During a session, agents write one episodic fact per file the moment they learn something non-obvious; at session start they load a slim index and only the per-domain map for the current project. A reflection skill periodically finds clusters of three or more related facts, distills them into a procedural playbook (a Claude Code SKILL.md), and archives the raw notes, so memory compounds instead of just growing. Everything is plain, git-versioned Markdown with wiki links, readable as an Obsidian vault. Session-start and stop hooks load context and auto-commit the vault. The public repo is the framework only: the real vault stays private and backed up to my homelab, and a pre-commit hook plus a CI scan block private IPs, token formats, and denylisted hostnames from ever entering a commit. The design borrows from Generative Agents' reflection, MemGPT/Letta's tiered memory, and Reflexion.",
     tags: ["Claude Code", "Agent Skills", "Markdown", "Git", "Bash", "PowerShell"],
@@ -162,7 +162,7 @@ export const SKILLS: SkillGroup[] = [
     items: ["Identity verification (KYC)", "Fraud prevention", "Underwriting & decisioning", "PII handling",
       "Adverse action notices", "Feature-flagged rollouts"],
   },
-  { category: "AI & Productivity", items: ["Claude Code", "Codex", "Cursor", "ChatGPT", "herdr"] },
+  { category: "AI & Productivity", items: ["Claude Code", "Codex", "herdr"] },
   { category: "Software", items: ["Visual Studio", "JetBrains Rider", "Azure DevOps", "AWS"] },
   { category: "Version Control", items: ["Git", "GitHub", "GitLab", "Azure DevOps (TFS)"] },
 ];
