@@ -126,19 +126,19 @@ export const EXPERIENCE: Experience[] = [
     tech: ["C#", ".NET Core", "SQL Server", "AWS", "CI/CD"],
   },
   {
-    role: "Programmer Analyst III",
-    company: "Change Healthcare",
-    period: "Sep 2018 — Dec 2019",
-    description: "Developed data validation and file parsing programs using Informatica.",
-    tech: ["Informatica", "SQL"],
-  },
-  {
     role: "Software Engineer II / Form Developer II",
     company: "Change Healthcare",
-    period: "Aug 2015 — Aug 2018",
+    period: "Sep 2018 — Dec 2019",
     description:
       "Built AccuPost, automated data entry software in C# that posted payments and adjustments to healthcare information systems. Developed OCR-based claim form processing.",
     tech: ["C#", ".NET", "OCR"],
+  },
+  {
+    role: "Programmer Analyst III",
+    company: "Change Healthcare",
+    period: "Aug 2015 — Aug 2018",
+    description: "Developed data validation and file parsing programs using Informatica.",
+    tech: ["Informatica", "SQL"],
   },
   {
     role: "Applications Developer II",
